@@ -1,0 +1,4 @@
+Business logic:
+- downloader
+- parser of text file
+- version checker: get version form version file and get version of existing files from registry

@@ -1,0 +1,39 @@
+I need a EXE (with c# ) to files on a Windows machine.
+
+Requirements:
+
+
+Download a master file that contains URLs of files to download and install
+Download a version file (hosted on Google drive)
+Install files to designated location
+Keep track of version
+When installer is run, check if files are up-to-date.
+If new version is detected or files haven't been installed before, install files. If not, do nothing.
+
+Note:
+
+
+All files (master file, version file, and files to install) will be hosted on google drive
+Provide source code after project is completed.
+
+
+
+Hi Andrew
+
+
+
+These are the files and paths I would like to install
+https://silverstarlivesoftware.com/downloads/hamilton.ex4 -> C:\tmp\Experts
+https://silverstarlivesoftware.com/downloads/conservatrader.ex4 -> C:\tmp\Experts
+https://drive.google.com/uc?export=download&id=1yV3NlO1QWLIRfSCEDr-J5i4SiSN0BYc6 -> C:\tmp\Files
+
+
+Master file
+https://drive.google.com/uc?export=download&id=1yVHP0qXLoqyRVjFv83KgPB2iZtQUcByF
+
+
+Version file
+https://drive.google.com/uc?export=download&id=1yXE4mCz-5hJ10S-qgB8TQytcKiJNfhzt
+
+
+Please suggest how you would keep track of the version of these files. Registry? local file?
