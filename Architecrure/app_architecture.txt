@@ -2,3 +2,34 @@ Business logic:
 - downloader
 - parser of text file
 - version checker: get version form version file and get version of existing files from registry
+
+UI:
+- create 3 pages:
+1) welcome page
+2) downloading page
+3) finish page
+
+
+             Download and Install                                                                           
+-------------------------------------------------------------------
+1. Main Controller asks Downloader to download versions file
+2. When file is downloaded, Downloader returns info to Main Controller
+3. Main Controller asks version checker to check versions
+4. Version checker asks parser to parse the downloaded file
+5. Version checker gets result from parser
+6. version checker looks into registry tring to find version of files there
+7. Version checker compares versions and returns result to Main Controller
+8. Main controller do the next:
+
+- if need to download, asks downloader to download master file; 
+- when master file is installed,  downloader returns result to Main Controller
+- Main Controller asks parser, to parse the file
+- parser returns the result to Main Controller
+- Main Controller asks downloader to download a list of files
+- downloader returns result to Main Controller
+- Main Controller
+
+
+- if download is not required, do nothing
+
+
