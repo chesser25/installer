@@ -74,7 +74,6 @@
                     <ColumnDefinition Width="4*"/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <Border Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="1"/>
                 <Button Content="Cancel" Click="Cancel_Install" HorizontalAlignment="Left" Background="#e1e1e1" Grid.Column="4" Width="90" Height="30"/>
             </Grid>
         </Grid>
