@@ -5,8 +5,102 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Installer"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Installer" Icon="icon.ico" Height="400" Width="500" ResizeMode="CanMinimize">
     <Grid>
-        
-    </Grid>
+        <Grid Name="WelcomePage" Visibility="Visible">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="4*"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2.1*"/>
+            </Grid.ColumnDefinitions>
+            <Image Source="welcome.png" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Column="0" Grid.Row="0"/>
+            <StackPanel Grid.Column="1" Grid.Row="0">
+                <TextBlock  FontSize="24" HorizontalAlignment="Left" Margin="10,10,0,0" FontWeight="Bold">
+                Welcome to the Installer <LineBreak/>
+                Setup Wizard
+                </TextBlock>
+                <TextBlock FontSize="11" HorizontalAlignment="Left" Margin="10,10,0,0">
+                This will Install files to your PC. <LineBreak/>
+                 <LineBreak/>
+                 It is recommended that you close all other applications before<LineBreak/>
+                 comtinuing. <LineBreak/>
+                 <LineBreak/>
+                  Click Install to continue, or Cancel to exit Setup.
+                </TextBlock>
+            </StackPanel>
+            <Grid Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1"  Background="#F0F0F0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button Content="Install >" Click="Install_Click" HorizontalAlignment="Left" Background="#e1e1e1" Grid.Column="3" Width="90" Height="30"/>
+                <Button Content="Cancel" Click="Finish_Click" HorizontalAlignment="Left" Background="#e1e1e1" Grid.Column="4" Width="90" Height="30"/>
+            </Grid>
+        </Grid>
+        <Grid Name="InstallPage" Visibility="Hidden">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1.2*"/>
+                <RowDefinition Height="4*"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="6*"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Row="0" Orientation="Vertical" Background="White">
+                    <TextBlock FontSize="14" FontWeight="Bold" Margin="20,10, 0, 0">
+                    Installing
+                    </TextBlock>
+                    <TextBlock Margin="50,0,0,0">
+                 Please wait while Setup installs files on your computer.
+                    </TextBlock>
+                </StackPanel>
+                <Image Grid.Column="1" Width="64" Height="64" Source="install2.jpg"/>
+            </Grid>
+            <StackPanel Grid.Row="1" Grid.RowSpan="2" Background="#F0F0F0">
+                <TextBlock Text="Installing files..." Margin="20" FontFamily="Verdana" FontSize="16"/>
+                <TextBlock Name="ProgressText" Text="0%" HorizontalAlignment="Center"/>
+                <ProgressBar IsIndeterminate="True" Name="Progress" Maximum="100" Width="400" Height="20" Value="0"/>
+            </StackPanel>
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Border Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="1"/>
+                <Button Content="Cancel" Click="Cancel_Install" HorizontalAlignment="Left" Background="#e1e1e1" Grid.Column="4" Width="90" Height="30"/>
+            </Grid>
+        </Grid>
+        <Grid Name="FinishPage" Visibility="Hidden">
+            <Grid.RowDefinitions>
+            <RowDefinition Height="4*"/>
+            <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2.1*"/>
+            </Grid.ColumnDefinitions>
+            <Image Source="finish.png" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Column="0" Grid.Row="0"/>
+            <StackPanel Grid.Column="1" Grid.Row="0">
+                <TextBlock  FontSize="24" HorizontalAlignment="Left" Margin="10,10,0,0" FontWeight="Bold">
+                Completing the files <LineBreak/>
+                installation <LineBreak/>
+                </TextBlock>
+                <TextBlock FontSize="12" HorizontalAlignment="Left" Margin="10,10,0,0">
+                Setup has finished installing files on your computer.<LineBreak/>
+                Click finish to exit Setup.<LineBreak/>
+                </TextBlock>
+            </StackPanel>
+            <Grid Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1"  Background="#F0F0F0">
+                <Button Click="Finish_Click" Content="Finish" HorizontalAlignment="Center" Background="#e1e1e1" Width="90" Height="30"/>
+            </Grid>
+        </Grid>
+     </Grid>
 </Window>

@@ -27,7 +27,7 @@ UI:
 - parser returns the result to Main Controller
 - Main Controller asks downloader to download a list of files
 - downloader returns result to Main Controller
-- Main Controller
+- Main Controller asks Version checker to set new versions
 
 
 - if download is not required, do nothing
