@@ -17,9 +17,8 @@ namespace Installer
 
         private void Install_Click(object sender, RoutedEventArgs e)
         {
-            WelcomePage.Visibility = Visibility.Hidden;
-            InstallPage.Visibility = Visibility.Visible;
-            MainController controller = new MainController();
+            MainController controller = new MainController(new ErrorHandler());
+            controller.showInstallPage = ShowInstallWindow;
             controller.downloadProgress = Download_Progress;
             controller.downloadAllFilesCompleted = ShowFinishWindow;
             controller.Start();
@@ -33,7 +32,7 @@ namespace Installer
 
         private void Finish_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            Utils.CloseApp();
         }
 
         private void Download_Progress(object sender, DownloadProgressChangedEventArgs e)
@@ -46,6 +45,12 @@ namespace Installer
         {
             InstallPage.Visibility = Visibility.Hidden;
             FinishPage.Visibility = Visibility.Visible;
+        }
+
+        private void ShowInstallWindow()
+        {
+            WelcomePage.Visibility = Visibility.Hidden;
+            InstallPage.Visibility = Visibility.Visible;
         }
     }
 }

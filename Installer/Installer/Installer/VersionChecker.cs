@@ -1,10 +1,11 @@
 ﻿using Microsoft.Win32;
+using System;
 
 namespace Installer
 {
     class VersionChecker
     {
-        private double newVersion;
+        private static double newVersion;
         private static VersionChecker versionChecker;
 
         public static VersionChecker Instance
@@ -24,7 +25,7 @@ namespace Installer
         private double GetOldVersion()
         {
             double oldVersion;
-            RegistryKey key = Registry.LocalMachine.OpenSubKey(Constants.REGISTRY_PATH);
+            RegistryKey key = Registry.CurrentUser.OpenSubKey(Constants.REGISTRY_PATH);
             double.TryParse(key?.GetValue(Constants.VERSION_KEY).ToString(), out oldVersion);
             return oldVersion;
         }
@@ -39,10 +40,15 @@ namespace Installer
 
         public void SaveNewVersion()
         {
-            using (RegistryKey key = Registry.LocalMachine
-               .OpenSubKey(Constants.REGISTRY_PATH))
+            try
             {
-                key?.SetValue(Constants.VERSION_KEY, newVersion);
+                RegistryKey key = Registry.CurrentUser.CreateSubKey(Constants.REGISTRY_PATH);
+                key.SetValue(Constants.VERSION_KEY, newVersion);
+                key.Close();
+            }
+            catch(Exception exc)
+            {
+
             }
         }
     }

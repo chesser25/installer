@@ -11,6 +11,14 @@ namespace Installer
     {
         public DownloadProgressChangedEventHandler downloadProgress;
         public AsyncCompletedEventHandler downloadAllFilesCompleted;
+        public Action showInstallPage;
+        private IErrorHandler errorHandler;
+
+        public MainController(IErrorHandler errorHandler)
+        {
+            this.errorHandler = errorHandler;
+        }
+
         public void Start()
         {
             DownloadVersionFile();
@@ -25,7 +33,13 @@ namespace Installer
         {
             if (VersionChecker.Instance.IsNewVersionAvailable)
             {
+                showInstallPage();
                 DownloadMasterFile();
+            }
+            else
+            {
+                errorHandler.ShowInfo(Constants.MESSAGE_NO_UPDATES);
+                Utils.CloseApp();
             }
         }
 

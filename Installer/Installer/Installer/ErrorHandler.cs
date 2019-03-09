@@ -12,5 +12,9 @@ namespace Installer
         {
             MessageBox.Show(message, Constants.WARNING_CAPTION, MessageBoxButton.OK, MessageBoxImage.Warning);
         }
+        public void ShowInfo(string message)
+        {
+            MessageBox.Show(message, Constants.INFO_CAPTION, MessageBoxButton.OK, MessageBoxImage.Information);
+        }
     }
 }

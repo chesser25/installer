@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Windows;
 
 namespace Installer
 {
@@ -19,6 +20,11 @@ namespace Installer
                 int desc;
                 return InternetGetConnectedState(out desc, 0);
             }
+        }
+
+        public static void CloseApp()
+        {
+            Application.Current.Shutdown();
         }
     }
 }

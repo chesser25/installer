@@ -32,6 +32,7 @@ namespace Installer
                 else
                 {
                     errorHandler.ShowWarning(Constants.INTERNET_IS_DISABLED_MESSAGE);
+                    Utils.CloseApp();
                 }
             }
             catch(Exception exc)
